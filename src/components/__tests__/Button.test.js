@@ -1,5 +1,6 @@
 import { render, screen, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import renderer from "react-test-renderer";
 import Button from "../Button";
 
 afterEach(() => {
@@ -17,4 +18,10 @@ test("should render text passed as prop", () => {
   const Btn = screen.getByTestId("counter_btn");
   expect(Btn).toHaveTextContent("Click me!!");
   expect(Btn).not.toHaveClass(); // Button component should not have any class.
+});
+
+test("should match snapshot", () => {
+  const tree = renderer.create(<Button text="Click me!!" onClick={() => {}} />);
+  console.log(tree);
+  expect(tree).toMatchSnapshot();
 });
