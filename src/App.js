@@ -1,7 +1,7 @@
 import "./styles.css";
 import { useState, useCallback, useMemo } from "react";
-import Count from "./Count";
-import Button from "./Button";
+import Count from "./components/Count";
+import Button from "./components/Button";
 
 export default function App() {
   const [counter1, setCounter1] = useState(0);
