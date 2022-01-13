@@ -21,7 +21,9 @@ test("should render text passed as prop", () => {
 });
 
 test("should match snapshot", () => {
-  const tree = renderer.create(<Button text="Click me!!" onClick={() => {}} />);
+  const tree = renderer
+    .create(<Button text="Click me!!" onClick={() => {}} />)
+    .toJSON();
   console.log(tree);
   expect(tree).toMatchSnapshot();
 });
